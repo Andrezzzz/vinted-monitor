@@ -1,0 +1,18 @@
+name: Test Telegram
+
+on:
+  workflow_dispatch:   # solo avvio manuale
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manda messaggio di prova
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          risposta=$(curl -s -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${CHAT_ID}" \
+            --data-urlencode "text=Prova dal Monitor Vinted su GitHub: le notifiche funzionano anche a PC spento.")
+          echo "$risposta" | grep -q '"ok":true' && echo "Messaggio inviato." || { echo "Errore Telegram: $(echo "$risposta" | grep -o '"description":"[^"]*"')"; exit 1; }
