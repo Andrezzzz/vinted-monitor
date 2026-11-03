@@ -2,7 +2,7 @@ name: Monitor Vinted
 
 on:
   schedule:
-    - cron: "0 * * * *"   # ogni ora (GitHub puo' ritardare di qualche minuto)
+    - cron: "7 * * * *"   # ogni ora al minuto 7: l'ora esatta e' la piu' congestionata
   workflow_dispatch:       # avvio manuale dalla scheda Actions
 
 concurrency:
