@@ -1,0 +1,5 @@
+.venv/
+monitor.log
+monitor.log.vecchio
+*.tmp
+__pycache__/

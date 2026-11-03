@@ -1,0 +1,34 @@
+{
+  "telegram_bot_token": "",
+  "telegram_chat_id": "",
+  "intervallo_secondi": 60,
+  "risultati_per_ricerca": 30,
+  "ricerche": [
+    {
+      "nome": "Console Wii U 20-50 euro",
+      "testo": "wii u",
+      "catalogo_id": 3025,
+      "prezzo_min": 20,
+      "prezzo_max": 50,
+      "parole_alternative": ["wii u", "wiiu", "wii-u"],
+      "parole_chiave": [],
+      "escludi": [
+        "gamepad", "controller", "manette", "wiimote", "telecomando",
+        "nunchuk", "nunchuck", "balance board", "mando",
+        "boîte vide", "boite vide", "empty box", "scatola vuota",
+        "solo scatola", "solo box", "box only", "caja vacia", "caja vacía",
+        "boite wii", "boîte wii", "box wii", "scatola wii", "caja wii",
+        "alimentatore", "alimentation", "netzteil", "power supply",
+        "fuente", "adaptador", "adaptateur", "adapter", "adattatore",
+        "caricabatter", "batteria", "custodia", "cavo", "sensor bar",
+        "barra", "stylus", "cuffie",
+        " hs", "defekt", "defect", "guasto", "rotto", "rotta",
+        "danneggiat", "broken", "ne fonctionne", "non funziona",
+        "per pezzi", "ersatz", "spare", "reparar", "riparazion",
+        "réparation", "piezas", "pièces", "pieces", "schaden"
+      ],
+      "taglie": [],
+      "condizioni": []
+    }
+  ]
+}
