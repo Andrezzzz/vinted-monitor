@@ -11,6 +11,7 @@ concurrency:
 
 permissions:
   contents: write          # serve per salvare visti.json nel repo
+  actions: write           # serve per riavviare il workflow a fine giro
 
 jobs:
   monitor:
@@ -41,3 +42,12 @@ jobs:
           git diff --cached --quiet || git commit -m "Aggiorna visti.json"
           git pull --rebase -X theirs || true
           git push || true
+
+      # GitHub salta spesso gli avvii programmati: ogni giro riuscito avvia
+      # subito il successivo. Il cron sopra resta come riserva se la catena
+      # si interrompe (errore o annullamento manuale).
+      - name: Avvia il giro successivo
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run monitor.yml --ref main
