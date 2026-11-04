@@ -2,7 +2,7 @@ name: Monitor Vinted
 
 on:
   schedule:
-    - cron: "7 * * * *"   # ogni ora al minuto 7: l'ora esatta e' la piu' congestionata
+    - cron: "7,27,47 * * * *"   # riserva: evita l'ora esatta (congestionata); se il monitor gira gia' resta in coda
   workflow_dispatch:       # avvio manuale dalla scheda Actions
 
 concurrency:
@@ -50,4 +50,11 @@ jobs:
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run monitor.yml --ref main
+        run: |
+          # l'API di GitHub ogni tanto risponde 502: riprova qualche volta
+          for tentativo in 1 2 3 4 5 6; do
+            gh workflow run monitor.yml --ref main && exit 0
+            echo "Tentativo $tentativo fallito, riprovo tra $((tentativo * 20)) secondi."
+            sleep $((tentativo * 20))
+          done
+          exit 1
