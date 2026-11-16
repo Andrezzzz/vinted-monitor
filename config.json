@@ -5,11 +5,11 @@
   "risultati_per_ricerca": 30,
   "ricerche": [
     {
-      "nome": "PlayStation 4 Slim 20-40 euro",
+      "nome": "PlayStation 4 Slim 20-50 euro",
       "testo": "ps4 slim",
       "catalogo_id": 3025,
       "prezzo_min": 20,
-      "prezzo_max": 40,
+      "prezzo_max": 50,
       "parole_alternative": [
         "ps4",
         "ps 4",
@@ -134,7 +134,16 @@
         "pulsante",
         "bouton",
         "botón",
-        "tasto"
+        "tasto",
+        "averiad",
+        "onderdel",
+        "kapot",
+        "fonte",
+        "carte mère",
+        "carte mere",
+        "placa base",
+        "placa-mãe",
+        "placa mae"
       ],
       "taglie": [],
       "condizioni": []
